@@ -47,4 +47,10 @@ public class MyNativeExampleModule extends ReactContextBaseJavaModule {
         Intent intent = new Intent(getCurrentActivity(),SecondActivity.class);
         getCurrentActivity().startActivity(intent);
     }
+
+    @ReactMethod
+    public void jumpToThirdActivity(){//测试热更新
+        Intent intent = new Intent(getCurrentActivity(),ThirdActivity.class);
+        getCurrentActivity().startActivity(intent);
+    }
 }

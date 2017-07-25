@@ -16,9 +16,24 @@ import {
 } from 'react-native';
 
 import SecondActivity from './secondActivity';
-
+var codePush = require('react-native-code-push');
 var myNativeExampleModule= NativeModules.MyNativeExampleModule;//react使用android原生模块
 class TextInputDemo extends React.Component{
+  componentDidMount(){
+    // AppState.addEventListener("change", (newState) => {
+    // newState === "active" && codePush.sync();
+    // });
+    codePush.sync({
+      updateDialog: {
+       appendReleaseDescription: true,
+       descriptionPrefix:'\n跟新内容：\n',
+       title:'更新',
+       mandatoryUpdateMessage:'',
+       mandatoryContinueButtonLabel:'更新',
+     },
+     mandatoryInstallMode:codePush.InstallMode.IMMEDIATE
+    });
+  }
   state = {
     inputText: ""
   }
@@ -28,13 +43,13 @@ class TextInputDemo extends React.Component{
     });
   }
   clickBtn = () => {
-      myNativeExampleModule.jumpActivity()
+      myNativeExampleModule.jumpToThirdActivity()
   }
   render(){
     return (
       <View style={styles.container}  >
         <TouchableOpacity style={styles.btn} onPress={this.clickBtn}>
-          <Text style={styles.jump} >点击跳转</Text>
+          <Text style={styles.jump} >热更新完成，点击跳转</Text>
         </TouchableOpacity>
       </View>
     );
