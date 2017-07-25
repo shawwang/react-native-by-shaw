@@ -12,12 +12,12 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  NativeModules
+  NativeModules//导入安卓原生模块
 } from 'react-native';
 
 import SecondActivity from './secondActivity';
 
-var BGNativeExampleModule= NativeModules.BGNativeExampleModule;
+var myNativeExampleModule= NativeModules.MyNativeExampleModule;//react使用android原生模块
 class TextInputDemo extends React.Component{
   state = {
     inputText: ""
@@ -28,7 +28,7 @@ class TextInputDemo extends React.Component{
     });
   }
   clickBtn = () => {
-      BGNativeExampleModule.jumpActivity()
+      myNativeExampleModule.jumpActivity()
   }
   render(){
     return (
@@ -40,7 +40,7 @@ class TextInputDemo extends React.Component{
     );
   }
 }
-
+//创建样式
 var styles = StyleSheet.create({
   container: {
     marginTop: 100,

@@ -14,7 +14,7 @@ import {
   TouchableOpacity,
   NativeModules
 } from 'react-native';
-var BGNativeExampleModule= NativeModules.BGNativeExampleModule;
+var myNativeExampleModule= NativeModules.MyNativeExampleModule;
 export default class SecondActivity extends React.Component{
   state = {
     inputText: ""
@@ -25,7 +25,7 @@ export default class SecondActivity extends React.Component{
     });
   }
   clickBtn = () => {
-      BGNativeExampleModule.testToast(this.state.inputText)
+      myNativeExampleModule.testToast(this.state.inputText)
   }
   render() {
     return (

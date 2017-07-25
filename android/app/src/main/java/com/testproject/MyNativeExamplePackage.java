@@ -14,11 +14,11 @@ import java.util.List;
  * Created by MrS on 2017/7/21.
  */
 
-public class BGNativeExamplePackage implements ReactPackage {
+public class MyNativeExamplePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.asList(new NativeModule[]{
-                new BGNativeExampleModule(reactContext)
+                new MyNativeExampleModule(reactContext)//这里添加我们创建的ReactContextBaseJavaModule子类
         });
     }
 
