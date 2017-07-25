@@ -15,21 +15,19 @@ import {
   NativeModules
 } from 'react-native';
 var BGNativeExampleModule= NativeModules.BGNativeExampleModule;
-var SecondActivity = React.createClass({
-  getInitialState: function(){
-    return{
-      inputText: ""
-    };
-  },
-  getContent: function(text){
+export default class SecondActivity extends React.Component{
+  state = {
+    inputText: ""
+  }
+  getContent = (text) => {
     this.setState({
       inputText: text
     });
-  },
-  clickBtn: function(){
+  }
+  clickBtn = () => {
       BGNativeExampleModule.testToast(this.state.inputText)
-  },
-  render: function(){
+  }
+  render() {
     return (
       <View style={styles.container}>
         <View style={styles.flex}>
@@ -46,8 +44,7 @@ var SecondActivity = React.createClass({
       </View>
     );
   }
-});
-module.exports = SecondActivity;
+}
 var styles = StyleSheet.create({
   container: {
     flexDirection: "row",

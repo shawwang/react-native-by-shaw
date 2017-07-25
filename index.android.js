@@ -18,21 +18,19 @@ import {
 import SecondActivity from './secondActivity';
 
 var BGNativeExampleModule= NativeModules.BGNativeExampleModule;
-var TextInputDemo = React.createClass({
-  getInitialState: function(){
-    return{
-      inputText: ""
-    };
-  },
-  getContent: function(text){
+class TextInputDemo extends React.Component{
+  state = {
+    inputText: ""
+  }
+  getContent = (text) => {
     this.setState({
       inputText: text
     });
-  },
-  clickBtn: function(){
+  }
+  clickBtn = () => {
       BGNativeExampleModule.jumpActivity()
-  },
-  render: function(){
+  }
+  render(){
     return (
       <View style={styles.container}  >
         <TouchableOpacity style={styles.btn} onPress={this.clickBtn}>
@@ -41,7 +39,7 @@ var TextInputDemo = React.createClass({
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
