@@ -49,7 +49,7 @@ class TextInputDemo extends React.Component{
     return (
       <View style={styles.container}  >
         <TouchableOpacity style={styles.btn} onPress={this.clickBtn}>
-          <Text style={styles.jump} >热更新完成，点击跳转</Text>
+          <Text style={styles.jump} >热更新完成哦，点击跳转试一试</Text>
         </TouchableOpacity>
       </View>
     );
